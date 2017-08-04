@@ -9,6 +9,16 @@ package socket
 import (
 	"syscall"
 	"unsafe"
+
+	"golang.org/x/sys/unix"
+)
+
+const (
+	sysAF_UNSPEC = unix.AF_UNSPEC
+	sysAF_INET   = unix.AF_INET
+	sysAF_INET6  = unix.AF_INET6
+
+	sysSOCK_RAW = unix.SOCK_RAW
 )
 
 func getsockopt(s uintptr, level, name int, b []byte) (int, error) {
